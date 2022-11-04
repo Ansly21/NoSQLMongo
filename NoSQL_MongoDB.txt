@@ -1,0 +1,65 @@
+mongod --dbpath=C:\MongoDB\data\db
+
+OPEN NEW TERMINAL
+
+mongo
+show dbs
+
+use databaseName -create and use db
+
+show collections  = shows collections(tables) in the db
+
+db.createCollection("Food_Product") -create collection
+
+db.Food_Product.insertOne(
+ {
+   food_ID: 10,
+   food_name: "Tapsilog",
+   food_description: "Tapsilog meal",
+   food_price: 50
+ }
+)
+
+db.createCollection("Delivery")
+
+db.Delivery.insertOne(
+ {
+   delivery_ID: 001,
+   customer_ID: 1,
+   food_ID: 10,
+   quantity: 2,
+   payment: "Cash on delivery",
+   date: "November, 04, 2022"
+ }
+)
+
+db.createCollection("Order_Details")
+
+db.Order_Details.insertOne(
+ {
+   order_ID: 25,
+   customer_ID: 1,
+   food_ID: 10,
+   quantity: 2,
+   delivery_ID: 001,
+   date: "November, 04, 2022"
+ }
+)
+
+db.createCollection("Customer")
+
+db.Customer.insertOne(
+ {
+   customer_ID: 1,
+   name: "Ansly",
+   contact_number: "09999999999",
+   address: "Tarlac"
+ }
+)
+
+db.Delivery.drop() -delete
+
+db.Customer.find() - read
+
+db.Customer.update({name: "Ansly"},{$set: {name: "Aliya"}}) -update
+
